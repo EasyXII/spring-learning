@@ -1,0 +1,57 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.eclipse.jdt.junit5.runtime
+Bundle-SymbolicName: org.eclipse.jdt.junit5.runtime;singleton:=true
+Built-By: genie.releng
+Require-Bundle: org.eclipse.jdt.junit.runtime;bundle-version="[3.4.600
+ ,4.0.0)",org.junit.jupiter.api;bundle-version="5.0.0",org.junit.jupit
+ er.engine;bundle-version="5.0.0",org.junit.jupiter.migrationsupport;b
+ undle-version="5.0.0",org.junit.jupiter.params;bundle-version="5.0.0"
+ ,org.junit.vintage.engine;bundle-version="4.12.0",org.opentest4j;bund
+ le-version="1.0.0",org.junit.platform.commons;bundle-version="1.0.0",
+ org.junit.platform.engine;bundle-version="1.0.0",org.junit.platform.l
+ auncher;bundle-version="1.0.0",org.junit.platform.runner;bundle-versi
+ on="1.0.0",org.junit.platform.suite.api;bundle-version="1.0.0",org.ap
+ iguardian;bundle-version="1.0.0",org.junit;bundle-version="4.7.0"
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Eclipse-SourceReferences: scm:git:git://git.eclipse.org/gitroot/jdt/ec
+ lipse.jdt.ui.git;path="org.eclipse.jdt.junit5.runtime";tag="I20180829
+ -0800";commitId=655861083de9498320b598976207621d9613e16b
+Bundle-Vendor: %providerName
+Export-Package: org.eclipse.jdt.internal.junit5.runner;x-internal:=tru
+ e
+Bundle-Name: %pluginName
+Bundle-Version: 1.0.200.v20180829-0645
+Bundle-Localization: plugin
+Created-By: Apache Maven 3.3.3
+Build-Jdk: 1.8.0_162
+
+Name: org/eclipse/jdt/internal/junit5/runner/JUnit5TestListener$Ignore
+ dTestIdentifier.class
+SHA-256-Digest: KgytoFn/xQa6B6JpXrQJh2Q8mUmTHT9v2f5DBY82auo=
+
+Name: about.html
+SHA-256-Digest: 7mbS+ztMDS7S5/aYvJ7U49bPd/pcr0CtAylhJdsaxfA=
+
+Name: org/eclipse/jdt/internal/junit5/runner/JUnit5TestListener$Assump
+ tionFailedTestIdentifier.class
+SHA-256-Digest: xTAMx0J1Iqtj/nk/Eu4AaxDZTh6sat9bWW0urjihVHg=
+
+Name: plugin.properties
+SHA-256-Digest: aixG9p2PqgGyofsY3Kc8DJ35qmEQ9mny7U4UvVJ+kQQ=
+
+Name: .api_description
+SHA-256-Digest: IJvBHtJtP2WNgiu2BBs7YooFI2PnqygDoxCpA+4Qw5A=
+
+Name: org/eclipse/jdt/internal/junit5/runner/JUnit5TestLoader.class
+SHA-256-Digest: tyGnqZWvjChrlHoA3j/37hjcoJl+HWghSMZcYjfcCvA=
+
+Name: org/eclipse/jdt/internal/junit5/runner/JUnit5TestReference.class
+SHA-256-Digest: BMz3T1A/1sBgE+AJittIG479kNOnS3/YLxpHn5dtThY=
+
+Name: org/eclipse/jdt/internal/junit5/runner/JUnit5TestListener.class
+SHA-256-Digest: OVq27SLGHiyr1Aq5hDFKD81ugd4b92pKFNTKU5a6soE=
+
+Name: org/eclipse/jdt/internal/junit5/runner/JUnit5Identifier.class
+SHA-256-Digest: /uZ/06SKXUsDgVOObMlr6cwbfzKxYTSvL9vQOZcPccs=
+

@@ -1,0 +1,35 @@
+package cn.daoimpl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import cn.dao.ForumDAO;
+import cn.domain.Forum;
+
+public class ForumDAOImpl implements ForumDAO{
+	@Autowired
+	private JdbcTemplate JdbcTemplate;
+	
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		JdbcTemplate = jdbcTemplate;
+	}
+
+	@Override
+	public int insertForum(Forum forum) {
+		//定义SQL
+		String sql = "insert into t_forum (forum_id,name,description,image) value(forum_id,?,?,?)";
+		//定义数组来存放SQL中的参数
+		Object[] objects = new Object[] {forum.getName(),forum.getDescription(),forum.getImage()};
+		int num = this.JdbcTemplate.update(sql, objects);
+		return num;
+	}
+
+	@Override
+	public List<Forum> getAllForums() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

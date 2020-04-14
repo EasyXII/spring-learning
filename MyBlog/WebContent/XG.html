@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>首页</title>
+</head>
+<body>
+	<style>
+* {
+	margin: 0;
+	padding: 0;
+}
+html{
+	background:url("b2.jpg");
+
+}
+button, input {
+	outline: none;
+}
+button a{
+text-decoration: none;
+color:white;
+}
+button, .OK {
+	width: 120px;
+	height: 42px;
+	background: #f40;
+	color: #fff;
+	border: none;
+	border-radius: 6px;
+	display: block;
+	margin: 20px auto;
+	cursor: pointer;
+}
+
+.popOutBg {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	background: rgba(0, 0, 0, .6);
+	display: none;
+}
+
+.popOut {
+	position: fixed;
+	width: 600px;
+	height: 500px;
+	top: 40%;
+	left: 50%;
+	margin-top: -150px;
+	margin-left: -300px;
+	background: #fff;
+	border-radius: 8px;
+	overflow: hidden;
+	display: none;
+}
+
+.popOut>span {
+	position: absolute;
+	right: 10px;
+	top: 0;
+	height: 42px;
+	line-height: 42px;
+	color: #000;
+	font-size: 30px;
+	cursor: pointer;
+}
+
+.popOut table {
+	display: block;
+	margin: 42px auto 0;
+	width: 520px;
+}
+
+.popOut caption {
+	width: 520px;
+	text-align: center;
+	color: #f40;
+	font-size: 18px;
+	line-height: 42px;
+}
+
+.popOut table tr td {
+	color: #666;
+	padding: 6px;
+	font-size: 14px;
+}
+
+.popOut table tr td:first-child {
+	text-align: right;
+}
+
+.inp {
+	width: 280px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #999;
+	padding: 5px 10px;
+	color: #000;
+	font-size: 14px;
+	border-radius: 6px;
+}
+
+.inp:focus {
+	border-color: #f40;
+}
+
+@
+keyframes ani {
+from { transform:translateX(-100%)rotate(-60deg)scale(.5);
+ }
+50%{transform:translateX(0)
+rotate(0)
+scale(1);
+}
+90%{
+transform:translateX(20px)
+rotate(0)
+scale(.8);
+}
+to {
+	transform: translateX(0) rotate(0) scale(1);
+}
+
+}
+.ani {
+	animation: ani .5s ease-in-out;
+}
+</style>
+	<button type="button">点我修改密码</button>
+	<button type="button"><a href="Main.jsp">返回</a></button>
+	<div class="popOutBg"></div>
+	<div class="popOut">
+		<span title="关闭"> x </span>
+		<table>
+			<caption>修改密码</caption>
+		   <form action="UpdatePasswordServlet" method="post">
+			<tr>
+				<td width="120">原密码：</td>
+				<td><input type="password" class="inp" name="oldpassword" placeholder="请输入原密码" /></td>
+			</tr>
+			<tr>
+				<td>新密码：</td>
+				<td><input type="password" class="inp" name="newpassword1" placeholder="请输入新密码" /></td>
+			</tr>
+			<tr>
+				<td>确认密码：</td>
+				<td><input type="password" class="inp" name="newpassword2" placeholder="再次输入新密码" /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" class="OK" value="确认修改" ></td>
+			</tr>
+			</form>
+		</table>
+	</div>
+	<script type="text/javascript">
+		function $(param) {
+			if (arguments[1] == true) {
+				return document.querySelectorAll(param);
+			} else {
+				return document.querySelector(param);
+			}
+		}
+		function ani() {
+			$(".popOut").className = "popOut ani";
+		}
+		$("button").onclick = function() {
+			$(".popOut").style.display = "block";
+			ani();
+			$(".popOutBg").style.display = "block";
+		};
+		$(".popOut > span").onclick = function() {
+			$(".popOut").style.display = "none";
+			$(".popOutBg").style.display = "none";
+		};
+		$(".popOutBg").onclick = function() {
+			$(".popOut").style.display = "none";
+			$(".popOutBg").style.display = "none";
+		};
+	</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd" 
+       xmlns:p="http://www.springframework.org/schema/p" 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xmlns="http://www.springframework.org/schema/beans">
+    <!-- 配置创建UserDAOImpl的实例 -->
+    <bean id="userDAO" class="com.aoptest1.dao.UserDAOImpl">
+    </bean>
+    <!-- 配置创建UserServiceImpl的实例 -->
+    <bean id="userSer" class="com.aoptest1.service.UserServiceImpl">
+       <!-- 依赖注入数据访问层组件 -->
+       <property name="userDAO" ref="userDAO"/>
+    </bean>
+    
+    <!-- 定义环绕通知 -->
+    <bean id="logAroundAdvice" class="com.aoptest1.aop.LogAroundAdvice"></bean>
+    <!-- 定义前置通知 -->
+    <bean id="logAdvice" class="com.aoptest1.aop.LogAdvice"></bean>
+    <!-- 定义后置通知 -->
+    <bean id="afterLogAdvice" class="com.aoptest1.aop.AfterLogAdvice"></bean>
+    <!-- 定义异常通知 -->
+    <bean id="throwsLogAdvice" class="com.aoptest1.aop.ThrowsLogAdvice"></bean>
+    
+    <!-- 定义代理类，名称为userProxy，将通过userProxy访问业务类中的方法 -->
+    <bean id="userProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+       <property name="proxyInterfaces">
+         <value>com.aoptest1.service.UserService</value>
+       </property>
+       <property name="interceptorNames">
+         <list>
+         
+           <!-- 织入环绕通知 -->
+           <value>logAroundAdvice</value>
+           <!-- 织入前置通知 -->
+           <value>logAdvice</value>
+           <!-- 织入后置通知 -->
+           <value>afterLogAdvice</value>
+           <!-- 织入异常通知 -->
+           <value>throwsLogAdvice</value>
+         </list>
+       </property>
+       <property name="target" ref="userSer"></property>
+    </bean>
+</beans>

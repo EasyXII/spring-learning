@@ -1,0 +1,33 @@
+package cn.test;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.junit.jupiter.api.Test;
+
+import cn.domain.Forum;
+import cn.utils.MybatisUtils;
+
+class ForumDaoTest {
+	@Test
+    public void insertForum() throws IOException {
+        SqlSession session=MybatisUtils.getSession();
+        //执行添加方法
+        Forum forum=new Forum();
+        forum.setName("hello");
+        forum.setDescription("hello my name is");
+        forum.setImage("1.jpg");
+        session.insert("insertForum",forum);
+        session.commit();
+        session.close();
+    }
+    @Test
+    public void getAllForums() throws IOException {
+        SqlSession session=MybatisUtils.getSession();
+        //执行添加方法
+        List<Forum> forums = session.selectList("getAllForums");
+        System.out.println(forums.toString());
+    }
+}
+

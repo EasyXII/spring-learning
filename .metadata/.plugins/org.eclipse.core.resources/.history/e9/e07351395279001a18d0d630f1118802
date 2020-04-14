@@ -1,0 +1,21 @@
+package cn.test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import cn.dao.ForumDAO;
+import cn.domain.Forum;
+
+class ForumDAOTest {
+	@Autowired
+	private ForumDAO forumDAO;
+	@Test
+	void insertForumTest() {
+		Forum forum = new Forum("spring交流","spring项目交流论坛","图片1");
+		int n = forumDAO.insertForum(forum);
+		assertEquals(1,n);
+	}
+
+}

@@ -1,0 +1,85 @@
+<%@page import="blog.util.*"%>
+<%@ page import="java.util.*" %>
+<%@ page import="blog.vo.*" %>
+<%@ page import="blog.dao.*" %>
+<%@ page import="blog.daoImpl.*" %>
+<%@ page import="blog.factory.*" %>
+<%@ page import="blog.servlet.*" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>首页</title>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<style type="text/css">
+.body {
+	height: 100%;
+}
+
+#foot {
+	position: relative;
+	bottom: 0;
+	text-align: center;
+	width: 1536px;
+	height: 61px;
+}
+</style>
+</head>
+<body>
+<div class="box">
+		<div id="head"></div>
+		<article>
+	<section>
+	<% 
+	request.setCharacterEncoding("UTF-8");
+	response.setContentType("text/html");
+	int totalRows = 0;
+	int currentPage = 0;
+	String flag = request.getParameter("flag");
+	String select = request.getParameter("select");
+	BlogDAO blog = new BlogDAOImpl();
+	SplitPage sPage = new SplitPage();
+	ArrayList<Blog> list = null;
+	if(select != null) {
+		totalRows = blog.getRows(select);
+		sPage.setTotalRows(totalRows);
+		currentPage = sPage.confirmPage(flag);
+		list = DAOFactory.getBlogDAOImpl().queryByLike(select, sPage);
+	}else {
+		totalRows = blog.getRows(select);
+		sPage.setTotalRows(totalRows);
+		currentPage = sPage.confirmPage(flag);
+		list = DAOFactory.getBlogDAOImpl().queryAll();
+	}
+	for(Blog b:list){
+	%>
+	<tr>
+	<br><td><%=b.getAuthor()%></td>
+	    <td><%=b.getContent()%></td>
+	    <td><%=b.getTitle()%></td>
+	    <td><%=b.getType()%></td>
+	    <td><%=b.getTime()%></td>
+	</tr>
+    <% } %>
+    </section>
+    <section>
+   <tr>
+         <td colspan="5" align="right">
+         <a href="HomePage.jsp?flag=<%=SplitPage.FIRSTPAGE%>">首页</a>
+         <a href="HomePage.jsp?flag=<%=SplitPage.PREVIOUSEPAGE%>">上一页</a>
+         <a href="HomePage.jsp?flag=<%=SplitPage.NEXTPAGE%>">下一页</a>
+         <a href="HomePage.jsp?flag=<%=SplitPage.LASTPAGE%>">尾页</a>
+         </td>
+      </tr>
+  </section>
+	</article>
+		<div id="foot"></div>
+		<script type="text/javascript">
+			$("#head").load("head.jsp");
+			$("#foot").load("foot.html");
+		</script>
+	</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <!-- namespace表示命名空间，最好唯一 -->
+<mapper namespace="cn.domain.Post">
+
+<insert parameterType="cn.domain.Forum" id="insertForum">
+<!-- #{}相当于？ -->
+insert into t_forum(name,description,image)value(#{name},#{description},#{image})
+</insert>
+<!-- 根据forum_id获取信息 -->
+<select id="getAllForums" resultType="cn.domain.Forum">
+select * from t_forum 
+<where>
+<if test="name !=null and name !=''">
+     and name like ('%',#{name},'%')
+</if>
+</where>
+</select>
+</mapper>

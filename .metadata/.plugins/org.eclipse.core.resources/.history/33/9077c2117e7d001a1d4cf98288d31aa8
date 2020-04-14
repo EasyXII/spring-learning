@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace表示命名空间，最好唯一 -->
+<mapper namespace="cn.domain.Post">
+<!-- 添加客戶信息 -->
+<insert parameterType="cn.domain.Post" id="insertPost">
+<!-- #{id}相当于？ -->
+insert into post(forum_id,title,content,thumbnail,post_time,account) value (#{forum_id},#{title},#{content},#{thumbnail},#{post_time},#{account}) 
+</insert>
+<!-- 根据post_id获取信息 -->
+<select parameterType="Integer" id="findById" resultType="cn.domain.Post">
+select * from post where post_id=#{post_id} 
+</select>
+<!-- 根据forum_id获取信息 -->
+<select parameterType="Integer" id="getPostsByForumId" resultType="cn.domain.Post">
+select * from post where forum_id=#{forum_id} 
+</select>
+<!-- 根据forum_id获取总数-->
+<select parameterType="Integer" id="getCountByForumId" resultType="Integer">
+select count(*) from post where forum_id=#{forum_id} </select>
+<!-- 更新信息 -->
+<update parameterType="cn.domain.Post" id="updatePost">
+update post set title=#{title},content=#{content},thumbnail=#{thumbnail},post_time=#{post_time},account=#{account} where post_id=#{post_id} </update>
+<!-- 删除客户信息 -->
+<delete parameterType="Integer" id="deletePost">
+delete from post where post_id=#{id} 
+</delete>
+</mapper>

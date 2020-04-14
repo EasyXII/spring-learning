@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>后台登录</title>
+
+<style type="text/css">
+body {
+	margin: 0px;
+	padding: 0px;
+	background:
+		url("image/img1.jpg");
+	background-size:100% 100%;
+   background-attachment: fixed;" 
+}
+
+.box {
+	position: absolute;
+	/*定位方式绝对定位absolute*/
+	top: 25%;
+	right: 10%;
+	/*实现块元素百分比下居中*/
+	width: 250px;
+	padding: 30px;
+	background: rgba(0, 0, 0, .6);
+	/*背景颜色为黑色，透明度为0.8*/
+	border-radius: 15px;
+	/*边框圆角，四个角均为15px*/
+}
+
+.box h2 {
+	margin: 0 0 30px;
+	padding: 0;
+	color: #fff;
+	text-align: center;
+	/*文字居中*/
+}
+
+.box .inputbox {
+	position: relative;
+}
+
+.box .inputbox input {
+	width: 100%;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #fff;
+	letter-spacing: 1px;
+	/*字符间的间距1px*/
+	margin-bottom: 30px;
+	border: none;
+	border-bottom: 1px solid #fff;
+	outline: none;
+	background: transparent;
+	/*背景颜色为透明*/
+}
+
+.box .inputbox label {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #fff;
+	pointer-events: none;
+}
+
+.box .inputbox input:focus ~ label, .box .inputbox input:valid ~ label {
+	top: -18px;
+	left: 0;
+	color: #03a9f4;
+	font-size: 14px;
+}
+
+.box input[type="submit"],.box input[type="button"] {
+	background: transparent;
+	border: none;
+	outline: none;
+	font-size: 16px;
+	color: white;
+	background: #03a9f4;
+	padding: 15px 20px;
+	/*光标呈现*/
+	border-radius: 10px;
+}
+.box input[type="submit"]:hover {
+	color: gold;
+	}
+.box input[type="button"]:hover {
+	color: gold;
+}
+</style>
+
+</head>
+<body>
+	<div class="box">
+		<h2>登录</h2>
+		<form action="LoginServlet" method="post">
+			<div class="inputbox">
+				<input type="text"  required="" id="id" name="id"> <label>用户名</label>
+			</div>
+			<div class="inputbox">
+				<input type="password" required="" id="password" name="password"> <label>密码</label>
+			</div>
+			<div class="inputbox">
+			<center><img border=0 src="verifyCode.jsp"></center>
+			<input type="text" name=verify  required="" maxlength=4 placeholder="请输入验证码" ><label>验证码</label>
+			</div>
+			<center>
+				<input type="submit" name="登录" value="登录"> 
+		</center>
+		</form>
+	</div>
+</body>
+</html>

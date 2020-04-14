@@ -1,0 +1,59 @@
+package cn.daoimpl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import cn.dao.PostDAO;
+import cn.domain.Post;
+
+public class PostDAOImpl implements PostDAO{
+	@Autowired
+	private JdbcTemplate JdbcTemplate;
+	
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		JdbcTemplate = jdbcTemplate;
+	}
+	
+	@Override
+	public int insertPoset(Post post) {
+		//定义SQL
+		String sql="insert into t_user(id,account,password) value(id,?,?)";
+		//定义数组来存放SQL中的参数
+	    Object[] objects = new Object[] {user.getAccount(),user.getPassword()		};
+		int num = this.JdbcTemplate.update(sql,objects);
+		return num;
+	}
+
+	@Override
+	public int deletePost(int post_id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Post getPostById(int post_id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int updatePost(Post post) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<Post> getPostsByForumId(int forum_id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getCountByForumId(int forum_id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

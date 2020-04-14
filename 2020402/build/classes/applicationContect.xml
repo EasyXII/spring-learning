@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xmlns:context="http://www.springframework.org/schema/context" 
+       xmlns:tx="http://www.springframework.org/schema/tx" 
+       xmlns:p="http://www.springframework.org/schema/p"  
+       xmlns:aop="http://www.springframework.org/schema/aop" 
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd 
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd 
+        http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx.xsd  
+        http://www.springframework.org/schema/aop  
+        http://www.springframework.org/schema/aop/spring-aop.xsd"> 
+ 
+ <!-- 读取数据库配置属性文件 -->
+ <context:property-placeholder location="jdbc.properties"/>
+ 
+ <!-- 扫描含有注解的包 -->
+ <context:component-scan base-package="cn.annotation_aop"/>   
+ 
+ <!-- 配置数据源，使用dbcp数据库连接池 -->
+ <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+    <property name="driverClassName" value="${jdbc.driverClassName}"/>
+    <property name="url" value="${jdbc.url}"/>
+    <property name="username" value="${jdbc.username}"/>
+    <property name="password" value="${jdbc.password}"/>
+    <!-- 连接初始值：连接池启动时创建的连接数量的初始值 默认值是0 -->
+    <property name="initialSize" value="3"/>
+    <!-- 最小空闲值：当空闲的连接数少于阀值时，连接池就会预申请去一些连接，以免洪峰来时来不及申请 默认值时0 -->
+    <property name="minIdle" value="3"/>
+    <!-- 最大空闲值：当经过一个高峰时间后，连接池可以慢慢将已经用不到的连接慢慢释放一部分，一直减少到maxIdle为止，0时无限制 默认值是8 -->
+    <property name="maxIdle" value="5"/>
+    <!-- 连接池的最大值，同一时间可以从池分配的最多连接数量，0时无限制 默认值是8 -->
+    <property name="maxTotal" value="15"/>
+ </bean>
+ 
+ <!-- 配置JdbcTemplate实例 -->
+ <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+      <property name="dataSource" ref="dataSource"/>
+ </bean>
+ 
+ <!-- 配置一个事务管理器的bean -->
+ <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" p:dataSource-ref="dataSource"/>
+  
+ <!-- 配置声明式事务，在使用处加注释@Transactional -->
+ <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+ 
+ <!-- 开启使用注释完成织入 -->
+ <aop:aspectj-autoproxy/>
+ </beans>

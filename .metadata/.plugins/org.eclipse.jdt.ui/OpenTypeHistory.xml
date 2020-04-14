@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+<typeInfo handle="=2020311/src&lt;com.itheima.ioc{UserDao.java[UserDao" modifiers="513" timestamp="1583917451621"/>
+<typeInfo handle="=2020316/src&lt;com.itheima.annotation{UserDao.java[UserDao" modifiers="513" timestamp="1584325142772"/>
+<typeInfo handle="=2020316/src&lt;com.itheima.annotation{UserService.java[UserService" modifiers="513" timestamp="1584325404373"/>
+<typeInfo handle="=2020316/C:\/Program Files\/Java\/jre1.8.0_131\/lib\/rt.jar&lt;java.nio.file.attribute(UserPrincipal.class[UserPrincipal" modifiers="1537" timestamp="1568175481526"/>
+<typeInfo handle="=2020324/C:\/Program Files\/Java\/jre1.8.0_131\/lib\/rt.jar&lt;org.w3c.dom.stylesheets(MediaList.class[MediaList" modifiers="1537" timestamp="1568175481526"/>
+<typeInfo handle="=2020324/E:\/新建文件夹\/2020324\/WebContent\/WEB-INF\/lib\/spring-core-5.2.3.RELEASE.jar&lt;org.springframework.cglib.proxy(MethodInterceptor.class[MethodInterceptor" modifiers="1537" timestamp="1584944479542"/>
+<typeInfo handle="=2020326/src&lt;com.aoptest1.dao{UserDAO.java[UserDAO" modifiers="513" timestamp="1585183718565"/>
+<typeInfo handle="=2020326/C:\/Program Files\/Java\/jre1.8.0_131\/lib\/rt.jar&lt;org.omg.PortableInterceptor(USER_EXCEPTION.class[USER_EXCEPTION" modifiers="1537" timestamp="1568175481526"/>
+<typeInfo handle="=2020326/src&lt;com.aoptest1.service{UserService.java[UserService" modifiers="513" timestamp="1585183950789"/>
+<typeInfo handle="=2020326/C:\/Program Files\/Java\/jre1.8.0_131\/lib\/rt.jar&lt;java.nio.file.attribute(UserDefinedFileAttributeView.class[UserDefinedFileAttributeView" modifiers="1537" timestamp="1568175481526"/>
+<typeInfo handle="=2020326/E:\/新建文件夹\/2020326\/WebContent\/WEB-INF\/lib\/aopalliance-1.0.jar&lt;org.aopalliance.intercept(MethodInterceptor.class[MethodInterceptor" modifiers="1537" timestamp="1585183476434"/>
+<typeInfo handle="=2020326/E:\/新建文件夹\/2020326\/WebContent\/WEB-INF\/lib\/spring-aop-5.1.5.RELEASE.jar&lt;org.springframework.aop(MethodBeforeAdvice.class[MethodBeforeAdvice" modifiers="1537" timestamp="1585183476449"/>
+<typeInfo handle="=2020326/E:\/新建文件夹\/2020326\/WebContent\/WEB-INF\/lib\/spring-aop-5.1.5.RELEASE.jar&lt;org.springframework.aop(AfterReturningAdvice.class[AfterReturningAdvice" modifiers="1537" timestamp="1585183476449"/>
+<typeInfo handle="=2020326/E:\/新建文件夹\/2020326\/WebContent\/WEB-INF\/lib\/spring-aop-5.1.5.RELEASE.jar&lt;org.springframework.aop(ThrowsAdvice.class[ThrowsAdvice" modifiers="1537" timestamp="1585183476449"/>
+<typeInfo handle="=2020329/src&lt;com.aop.hello{Hello.java[Hello" modifiers="513" timestamp="1585449630355"/>
+<typeInfo handle="=2020331/src&lt;com.aspectj.anno.dao{UserDao.java[UserDao" modifiers="513" timestamp="1585706898124"/>
+<typeInfo handle="=2020331/src&lt;cn.annotation_aop.dao{UserDAO.java[UserDAO" modifiers="513" timestamp="1585616365424"/>
+</typeInfoHistroy>

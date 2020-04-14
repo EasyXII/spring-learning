@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-4.0.xsd" >
+
+ <context:annotation-config /> 
+ 
+<bean id="now" class="java.util.Date"></bean>
+<bean id="simpleDateFormat" class="java.text.SimpleDateFormat">
+	<constructor-arg value="yyyy年MM月dd日  hh点mm分ss秒"></constructor-arg>
+</bean>
+
+ <bean id="user" class="com.niit.anno.User" scope="prototype"></bean>
+<bean id="random" class="java.util.Random" ></bean>
+<bean id="annotationIoCBean" class="com.niit.anno.AnnotationIoCBean" ></bean> 
+
+</beans>

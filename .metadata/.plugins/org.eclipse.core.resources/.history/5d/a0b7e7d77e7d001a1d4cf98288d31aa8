@@ -1,0 +1,75 @@
+package cn.test;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.sql.Timestamp;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.junit.jupiter.api.Test;
+
+import cn.domain.Post;
+import cn.utils.MybatisUtils;
+
+class PostDaoTest {
+	@Test//添加
+    public void insertPost() throws  Exception{
+        //创建post对象
+       // File file = new File("F:/下载/ico图片/index_sel.png");
+       // byte[] fileByte = Files.readAllBytes(file.toPath());//图片转换成byte数组
+       Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        System.out.println(timestamp);
+       Post post=new Post();
+       post.setForum_id(4);
+       post.setTitle("hello");
+       post.setContent("hello file");
+       post.setThumbnail(null);
+       post.setPost_time(timestamp);
+       post.setAccount("1000000");
+       //调用MybatisUtil获得SqlSession
+       SqlSession session=MybatisUtils.getSession();
+       //执行添加方法
+       session.insert("insertPost",post);
+       session.commit();//手动提交事务
+       session.close();
+    }
+    @Test//删除
+    public void deletePost()throws IOException {
+        SqlSession session=MybatisUtils.getSession();
+        session.delete("deletePost",2);
+        session.commit();
+        session.close();
+    }
+    @Test//查询
+    public void findById() throws IOException {
+      SqlSession session=MybatisUtils.getSession();
+//      Post post=session.selectOne("findById",14);
+//      System.out.println(post.toString());
+        //查询forum_id总数
+      int count = session.selectOne("getCountByForumId", 1);
+      System.out.println(count);
+    }
+
+    @Test//查询所有
+    public void getPostsByForumId() throws  Exception{
+        SqlSession session=MybatisUtils.getSession();
+       List <Post> posts=session.selectList("getPostsByForumId",1);
+        System.out.println(posts.toString());
+    }
+    @Test//修改
+    public void updatePost() throws  Exception{
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        SqlSession session=MybatisUtils.getSession();
+        Post post=new Post();
+        post.setPost_id(10);
+        post.setTitle("mybatis");
+        post.setContent("hahahaha");
+        post.setThumbnail(null);
+        post.setPost_time(timestamp);
+        post.setAccount("200000");
+        session.update("updatePost",post);
+        session.commit();//手动提交事务
+        session.close();
+    }
+}

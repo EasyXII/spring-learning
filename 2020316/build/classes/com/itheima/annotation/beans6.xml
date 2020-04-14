@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
+                           http://www.springframework.org/schema/context 
+                           http://www.springframework.org/schema/context/spring-context-4.0.xsd" 
+       xmlns:p="http://www.springframework.org/schema/p" 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xmlns="http://www.springframework.org/schema/beans" 
+       xmlns:context="http://www.springframework.org/schema/context">
+       <!-- 使用Context命名空间，通知Spring扫描指定包下所有的Bean类，进行注解解析 -->
+      <!-- <context:component-scan base-package="com.itheima.annotation" />  -->
+<!-- 使用context命名空间，在配置文件中开启相应的注解处理器 -->
+<!-- <context:annotation-config />-->
+<!-- 分別定义3个Bean实例 -->
+<!-- <bean id="userDao" class="com.itheima.annotation.UserDaoImpl.java"></bean>
+<bean id="userService" class="com.itheima.annotation.UserServiceImpl.java"></bean>
+<bean id="userController" class="com.itheima.annotation.UserController.java"></bean>-->
+
+<bean id="userDao" class="com.itheima.annotation.UserDaoImpl.java"></bean>
+<bean id="userService" class="com.itheima.annotation.UserServiceImpl.java" autowire="byName"></bean>
+<bean id="userController" class="com.itheima.annotation.UserController.java" autowire="byName"></bean>
+</beans>

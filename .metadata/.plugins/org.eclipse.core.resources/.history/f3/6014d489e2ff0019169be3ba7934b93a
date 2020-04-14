@@ -1,0 +1,73 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>留言板</title>
+<style type="text/css">
+body{
+color:white
+}
+</style>
+</head>
+<body background="images/3.jpg">
+<center>
+<a href="userInfo.jsp"><img src="<%=session.getAttribute("image")%>" alt="修改头像">
+
+</a>
+ &nbsp&nbsp&nbsp JSP学习论坛留言板  <a href="exit.jsp">退出登录</a>
+ <hr>
+ <h3><a href="list_note.jsp?flag=first">显示所有留言</a></h3>
+ <form action="list_note.jsp?flag=first" metho>
+  <table>
+        <tr>
+            <td>在</td>
+            <td>
+               <select name="item">
+                 <option value="title">标题</option>
+                 <option value="author">作者</option>
+                 <option value="content">内容</option>
+               </select>中查询
+            </td>
+            <td><input type="text" name="content"></td>
+            <td><input type="submit" name="submit" value="搜素"></td>
+        </tr>
+  </table>
+ </form>
+ <h3>
+  <a href="">添加新留言</a>
+ </h3>
+ 
+ <% if(session.getAttribute("me")!=null){  %>
+	 <jsp:useBean id="spage" class="note.util.SplitPage" scope="session"></jsp:useBean>
+	 <%NoteDAO note =new NoteDAOImpl() %>
+ <% }%>
+ 
+ <table width="80%" border="1" cellpadding="0" align="center">
+      <tr>
+          <td>留言</td>
+          <td>标题</td>
+          <td>作者</td>
+          <td>内容</td>
+          <td>删除</td>
+      </tr> 
+      
+      <%
+         List<Note> list = null;
+         list = note.findAll(sqage);
+         for(Note n:list){
+      %>  
+      <tr>
+          <td><%=n.getId()%></td>
+          <td><%=n.getTitle()%></td>
+          <td><%=n.getAuthor()%></td>
+          <td><%=n.getcontent()%></td>
+          <td>删除</td>
+      </tr>	 
+         }
+      
+ </table>
+</center>
+</body>
+</html> 

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <beans xmlns="http://www.springframework.org/schema/beans"         
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"         
+ xmlns:aop="http://www.springframework.org/schema/aop"         
+ xsi:schemaLocation="http://www.springframework.org/schema/beans         
+ http://www.springframework.org/schema/beans/spring-beans.xsd        
+ http://www.springframework.org/schema/aop       
+ http://www.springframework.org/schema/aop/spring-aop.xsd"> 
+ <!-- 目标类 -->
+ <bean id="Hello" class="com.aop.hello.HelloImpl"></bean>
+ <!-- 切面 -->
+ <bean id="MyBefore" class="com.aop.hello.MyBefore"></bean>
+ <!-- aop编程 -->
+ <aop:config>
+   <!-- 配置切面 -->
+   <aop:aspect ref="MyBefore">
+    <!-- 配置切入点，通知最后增强那些方法 -->
+    <aop:pointcut expression="execution(* com.aop.hello.*.*(..))" id="myPointCut"/>
+    <!-- 关联通知Advice和切入点pointCut -->
+    <aop:before method="beforeMethod()" pointcut-ref="myPointCut"/>
+   </aop:aspect>
+ </aop:config>
+ </beans>

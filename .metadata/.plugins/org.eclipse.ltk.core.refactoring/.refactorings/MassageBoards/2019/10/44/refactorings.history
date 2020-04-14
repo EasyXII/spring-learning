@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;1.gif&apos; to &apos;images&apos;&#x0D;&#x0A;- Original project: &apos;MassageBoards&apos;&#x0D;&#x0A;- Destination element: &apos;images&apos;&#x0D;&#x0A;- Original element: &apos;1.gif&apos;" description="Copy file" element1="WebContent/images/1.gif" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1572402809060" target="/Board/WebContent/images" units="0" version="1.0"/>
+</session>

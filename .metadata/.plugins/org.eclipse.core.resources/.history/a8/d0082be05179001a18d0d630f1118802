@@ -1,0 +1,16 @@
+package cn.test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import cn.domain.Forum;
+
+class ForumDAOTest {
+
+	@Test
+	void insertForumTest() {
+		Forum forum = new Forum("spring交流","spring项目交流论坛","图片1");
+	}
+
+}

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xmlns:context="http://www.springframework.org/schema/context" 
+       xmlns:tx="http://www.springframework.org/schema/tx" 
+       xmlns:p="http://www.springframework.org/schema/p"  
+       xmlns:aop="http://www.springframework.org/schema/aop" 
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd 
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd 
+        http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx.xsd  
+        http://www.springframework.org/schema/aop  
+        http://www.springframework.org/schema/aop/spring-aop.xsd"> 
+ 
+ <!-- 读取数据库配置属性文件 -->
+ <context:property-placeholder location="jdbc.properties"/>
+ 
+ <!-- 扫描含有注解的包 -->
+ <context:component-scan base-package="cn.daoimpl"/>   
+ 
+ <!-- 配置数据源，使用阿里巴巴的druid数据库连接池 -->
+ <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+       init-method="init" destroy-method="close">
+      <property name="driverClassName" value="${jdbc.driverClassName}"/>
+      <property name="url" value="${jdbc.url}"/>
+      <property name="username" value="${jdbc.username}"/>
+      <property name="password" value="${jdbc.password}"/>
+      <!-- 初始化大小 -->
+      <property name="initialSize" value="20"/>
+      <!-- 连接池最大使用连接数量 -->
+      <property name="maxActive" value="20"/>
+      <!-- 连接池最小空闲 -->
+      <property name="minIdle" value="0"/>
+      <!-- 配置获取连接等待超时的时间 -->
+      <property name="maxWait" value="60000"/>
+      <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+      <property name="timeBetweenEvictionRunsMillis" value="60000"/>
+      <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+      <property name="minEvictableIdleTimeMillis" value="300000"/>
+      <!-- 连接空闲时测试是否有效 -->
+      <property name="testWhileIdle" value="false"/> 
+      <!-- 获取连接时测试是否有效 -->
+      <property name="testOnBorrow" value="false"/>
+      <!-- 归还连接时是否测试有效 -->
+      <property name="testOnReturn" value="false"/>
+      <!-- 打开PSCache缓存，并且指定每个连接上PSCche的大小 -->
+      <property name="poolPreparedStatements" value="true"/>
+      <property name="maxPoolPreparedStatementPerConnectionSize" value="20"/>     
+ </bean>
+ 
+ <!-- 配置jdbcTemplate实例 -->
+ <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+      <property name="dataSource" ref="dataSource"/>
+ </bean>
+ 
+ <!-- 配置一个事务管理器的bean -->
+ <bean id="transactionManager"
+       class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+       p:dataSource-ref="dataSource"/>
+  
+  <!-- 配置声明式事务，在使用处加注解@Transactional -->
+  <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>     
+ </beans>

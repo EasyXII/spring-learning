@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLEC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace表示命名空间 -->
+<mapper namespace="com.itheima.mapper.CustomerMapper">
+   <!-- 根据客户编号获取客户信息 -->
+   <select id="findCustomerById" parameterType="Integer"
+        resultType="com.itheima.po.Customer">
+        select * from t_customer where id = #{id}     
+   </select>
+</mapper>

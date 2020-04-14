@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<servers>
+  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/Tomcat v9.0 Server at localhost-config" deployDir="wtpwebapps" hostname="localhost" id="Tomcat v9.0 Server at localhost" name="Tomcat v9.0 Server at localhost" runtime-id="Apache Tomcat v9.0" server-type="org.eclipse.jst.server.tomcat.90" server-type-id="org.eclipse.jst.server.tomcat.90" start-timeout="45" stop-timeout="15" testEnvironment="false" timestamp="11">
+    <list key="modules" value0="MassageBoards::org.eclipse.jst.jee.server:MassageBoards::jst.web::3.0" value1="Board::org.eclipse.jst.jee.server:Board::jst.web::3.0" value2="UserManaSys::org.eclipse.jst.jee.server:UserManaSys::jst.web::3.0" value3="fyx20199::org.eclipse.jst.jee.server:fyx20199::jst.web::3.0" value4="chapter08::org.eclipse.jst.jee.server:chapter08::jst.web::3.0" value5="MyBlog::org.eclipse.jst.jee.server:MyBlog::jst.web::3.0" value6="2020311::org.eclipse.jst.jee.server:2020311::jst.web::3.0" value7="2020316::org.eclipse.jst.jee.server:2020316::jst.web::3.0" value8="2020319::org.eclipse.jst.jee.server:2020319::jst.web::3.0" value9="2020407::org.eclipse.jst.jee.server:2020407::jst.web::3.0"/>
+  </server>
+</servers>

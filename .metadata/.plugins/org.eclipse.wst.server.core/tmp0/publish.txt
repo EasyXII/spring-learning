@@ -1,0 +1,12 @@
+#Tomcat publish data
+#Wed Apr 08 16:18:21 CST 2020
+org.eclipse.jst.jee.server\:2020319=C\:\\Users\\asus\\Desktop\\Tomcat9\\wtpwebapps\\2020319
+org.eclipse.jst.jee.server\:chapter08=C\:\\Users\\asus\\Desktop\\Tomcat9\\wtpwebapps\\chapter08
+org.eclipse.jst.jee.server\:fyx20199=C\:\\Users\\asus\\Desktop\\Tomcat9\\wtpwebapps\\fyx20199
+org.eclipse.jst.jee.server\:2020316=C\:\\Users\\asus\\Desktop\\Tomcat9\\wtpwebapps\\2020316
+org.eclipse.jst.jee.server\:2020311=C\:\\Users\\asus\\Desktop\\Tomcat9\\wtpwebapps\\2020311
+org.eclipse.jst.jee.server\:Board=C\:\\Users\\asus\\Desktop\\Tomcat9\\wtpwebapps\\Board
+org.eclipse.jst.jee.server\:MyBlog=C\:\\Users\\asus\\Desktop\\Tomcat9\\wtpwebapps\\MyBlog
+org.eclipse.jst.jee.server\:2020407=C\:\\Users\\asus\\Desktop\\Tomcat9\\wtpwebapps\\2020407
+org.eclipse.jst.jee.server\:MassageBoards=C\:\\Users\\asus\\Desktop\\Tomcat9\\wtpwebapps\\MassageBoards
+org.eclipse.jst.jee.server\:UserManaSys=C\:\\Users\\asus\\Desktop\\Tomcat9\\wtpwebapps\\UserManaSys

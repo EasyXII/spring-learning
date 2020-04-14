@@ -1,0 +1,37 @@
+package cn.test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import cn.dao.ForumDAO;
+import cn.domain.Forum;
+
+@ExtendWith(SpringExtension.class)
+@ContextConfiguration(locations = {"/applicationContext.xml"})
+class ForumDAOTest {
+	@Autowired
+	private ForumDAO forumDAO;
+	
+	@Test
+	void insertForumTest() {
+		Forum forum = new Forum("spring交流","spring项目交流论坛","图片1");
+		int n = forumDAO.insertForum(forum);
+		assertEquals(1,n);
+	}
+	
+	@Test
+	void getAllForumsTest() {
+		List<Forum> forum = forumDAO.getAllForums();
+		for (Forum forum11 : forum) {
+			System.out.println(forum11.toString());
+		}
+	}
+
+}

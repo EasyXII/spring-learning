@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd" xmlns:p="http://www.springframework.org/schema/p" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans">
+  
+   <!-- 设值注入 -->
+   <bean id="phone" class="com.huodong3.Phone">
+        <property name="brand" value="华为"></property>
+   </bean>
+  <!-- <bean id="student2" class="com.huodong3.Student">
+        <property name="name" value="AXI"></property>
+        <property name="age" value="24"></property>
+   </bean>  -->
+    <!-- 构造注入 -->
+  <bean id="student" class="com.huodong3.Student">
+         
+         <constructor-arg index="0" value="Pakho"></constructor-arg>
+         <constructor-arg index="1" value="36"></constructor-arg>
+         <constructor-arg index="2" ref="phone"></constructor-arg>
+   </bean>  
+</beans> 

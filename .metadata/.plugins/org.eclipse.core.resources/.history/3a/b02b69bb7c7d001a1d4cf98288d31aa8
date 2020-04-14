@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<settings>
+<!-- 开启二级缓存，cacheEnabled默认值 false-->
+<setting name="cacheEnabled" value="true"/>
+</settings>
+
+<!-- 别名不区分大小写 -->
+<typeAliases>
+<!-- 配置单个别名 -->
+<!-- <typeAlias alias="customer" type="com.itheima.po.Customer" />-->
+<!-- 配置扫描包形式 ,别名就是类首字母小写-->
+<package name="cn"/>
+</typeAliases>
+
+<!-- 配置环境默认的环境id为mysql -->
+ <environments default="mysql">
+ <!-- 配置id 为mysql的数据库环境 -->
+ <environment id="mysql">
+ <!-- 使用jdbc的事务管理 -->
+ <transactionManager type="JDBC"/>
+ <!-- 数据库连接池-->
+ <dataSource type="POOLED">
+ <property name="driver" value="com.mysql.jdbc.Driver"/>
+ <property name="url" value="jdbc:mysql://localhost:3306/aop"/>
+ <property name="username" value="ctt"/>
+ <property name="password" value="991117..c"/>
+ </dataSource>
+ </environment>
+ </environments>
+ <!-- 配置mapper的位置上 -->
+ <mappers>
+ <!-- 可以配置多个mapper -->
+ <mapper resource="cn/Mapper/ForumMapper.xml"/>
+ <mapper resource="cn/Mapper/PostMapper.xml"/>
+ </mappers>
+</configuration>

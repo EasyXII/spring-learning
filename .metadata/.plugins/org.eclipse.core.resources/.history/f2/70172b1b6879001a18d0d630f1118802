@@ -1,0 +1,26 @@
+package cn.test;
+
+import org.junit.jupiter.api.Assertions;
+
+import java.io.InputStream;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import cn.dao.PostDAO;
+
+@ExtendWith(SpringExtension.class)
+@ContextConfiguration(locations = {"classpath:applicationContext.xml"})
+class PostDAOTest {
+    @Autowired
+    private PostDAO postDAO;
+    private InputStream input;
+	@Test
+	void test() {
+		fail("Not yet implemented");
+	}
+
+}

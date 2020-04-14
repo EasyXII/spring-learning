@@ -1,0 +1,46 @@
+package cn.daoimpl;
+
+import java.util.List;
+
+import cn.dao.PostDAO;
+import cn.domain.Post;
+
+public class PostDAOImpl implements PostDAO{
+
+	@Override
+	public int insertPoset(Post post) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int deletePost(int post_id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Post getPostById(int post_id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int updatePost(Post post) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<Post> getPostsByForumId(int forum_id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getCountByForumId(int forum_id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

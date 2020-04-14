@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.mapper.ForumMapper.xml">
+    <insert id="insertForum" parameterType="cn.domain.Forum">
+           insert into t_forum (forum_id,forum_name,description,image) value(forum_id,#{forum_name},#{description},#{image})
+    </insert>
+</mapper>

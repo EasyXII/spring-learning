@@ -1,0 +1,36 @@
+package cn.test;
+
+import org.junit.jupiter.api.Assertions;
+
+import java.io.InputStream;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.List;
+
+import cn.dao.PostDAO;
+import cn.domain.Post;
+
+@ExtendWith(SpringExtension.class)
+@ContextConfiguration(locations = {"classpath:applicationContext.xml"})
+class PostDAOTest {
+    @Autowired
+    private PostDAO postDAO;
+    private InputStream input;
+	@Test
+	void insertPosetTest() {
+		Timestamp time = new Timestamp(System.currentTimeMillis());
+		byte[] b = {1};
+		Post post = new Post(1,"ÏîÄ¿1","spring..",b,time,"ax");
+		
+	}
+
+}

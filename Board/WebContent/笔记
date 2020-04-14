@@ -1,0 +1,8 @@
+note.vo：数据库中的表对应的类
+note.util：基础类
+note.servlet
+note.filter：过滤器
+note.factory
+note.dao：接口，操作数据库
+note.daoImpl：实现类
+javaBean:java类
